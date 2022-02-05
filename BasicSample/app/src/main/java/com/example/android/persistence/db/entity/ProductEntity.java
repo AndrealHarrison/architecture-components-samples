@@ -30,7 +30,10 @@ public class ProductEntity implements Product {
     private int price;
     private String color;
 
-   @Override
+    public ProductEntity(int i, String name2, String desc2, int i1) {
+    }
+
+    @Override
     public String getColor() {return color;}
 
     public void setColor(String color) {this.color = color; }
@@ -75,7 +78,7 @@ public class ProductEntity implements Product {
     }
 
     @Ignore
-    public ProductEntity(int id, String name, String description, int price, String size) {
+    public ProductEntity(int id, String name, String description, int price, String color) {
         this.id = id;
         this.name = name;
         this.description = description;
