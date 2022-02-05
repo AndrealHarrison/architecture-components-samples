@@ -24,10 +24,12 @@ import androidx.room.Fts4;
 public class ProductFtsEntity {
   private String name;
   private String description;
+  private String color;
 
-  public ProductFtsEntity(String name, String description) {
+  public ProductFtsEntity(String name, String description, String color) {
     this.name = name;
     this.description = description;
+    this.color = color;
   }
 
   public String getName() {
@@ -37,4 +39,6 @@ public class ProductFtsEntity {
   public String getDescription() {
     return description;
   }
+
+  public String getColor() {return color;}
 }
