@@ -39,7 +39,7 @@ import com.example.android.persistence.db.entity.ProductFtsEntity;
 import java.util.Arrays;
 import java.util.List;
 
-@Database(entities = {ProductEntity.class, ProductFtsEntity.class, CommentEntity.class}, version = 2)
+@Database(entities = {ProductEntity.class, ProductFtsEntity.class, CommentEntity.class}, version = 3)
 @TypeConverters(DateConverter.class)
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase sInstance;
@@ -92,7 +92,7 @@ public abstract class AppDatabase extends RoomDatabase {
                         });
                     }
                 })
-            .addMigrations(MIGRATION_2_3)
+            .addMigrations(MIGRATION_1_3)
             .build();
     }
 
@@ -128,13 +128,13 @@ public abstract class AppDatabase extends RoomDatabase {
         return mIsDatabaseCreated;
     }
 
-    private static final Migration MIGRATION_2_3 = new Migration(2, 3) {
+    private static final Migration MIGRATION_1_3 = new Migration(1, 3) {
 
         @Override
         public void migrate(@NonNull SupportSQLiteDatabase database) {
             for (String s : Arrays.asList("CREATE VIRTUAL TABLE IF NOT EXISTS `productsFts` USING FTS4("
-                    + "`name` TEXT, `description` TEXT, content=`products`)", "INSERT INTO productsFts (`rowid`, `name`, `description`) "
-                    + "SELECT `id`, `name`, `description` FROM products")) {
+                    + "`name` TEXT, `description` TEXT, content=`products`)", "INSERT INTO productsFts (`rowid`, `name`, `description`, `color`) "
+                    + "SELECT `id`, `name`, `description`, `color` FROM products")) {
                 database.execSQL(s);
             }
 

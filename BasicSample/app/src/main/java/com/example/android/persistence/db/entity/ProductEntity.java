@@ -30,8 +30,7 @@ public class ProductEntity implements Product {
     private int price;
     private String color;
 
-    public ProductEntity(int i, String name2, String desc2, int i1) {
-    }
+
 
     @Override
     public String getColor() {return color;}
