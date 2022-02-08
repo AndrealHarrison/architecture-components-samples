@@ -97,7 +97,7 @@ public class ProductDaoTest {
         assertThat(product.getName(), is(PRODUCT_ENTITY.getName()));
         assertThat(product.getDescription(), is(PRODUCT_ENTITY.getDescription()));
         assertThat(product.getPrice(), is(PRODUCT_ENTITY.getPrice()));
-        //assertThat(product.getColor(), is(PRODUCT_ENTITY.getColor()));
+        assertThat(product.getColor(), is(PRODUCT_ENTITY.getColor()));
     }
 
 }
